@@ -36,7 +36,15 @@
 				</tr>
 				<tr>
 					<td><label>Status</label>
-					<td><form:input path="status"/></td>
+					<td><form action="/action_page.php">
+  							<select id="status" name="status">
+   							 <option value="100% Complete">100% Complete</option>
+   							<option value="Story Complete">Story Complete</option>
+    						<option value="In Progress">In Progress</option>
+    						<option value="Not Started">Not Started</option>
+    						</select>
+    						</form>
+    						</td>
 				</tr>
 				<tr>
 					<td><label>Platform</label>
