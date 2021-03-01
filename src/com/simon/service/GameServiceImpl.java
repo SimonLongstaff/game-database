@@ -23,4 +23,33 @@ public class GameServiceImpl implements GameService {
 		return gameDAO.getGames();
 	}
 
+
+
+	@Override
+	@Transactional
+	public void saveGame(Game game) {
+		
+		gameDAO.saveGame(game);
+	}
+
+
+
+	@Override
+	@Transactional
+	public Game getGame(int id) {
+	
+		return gameDAO.getGame(id);
+	}
+
+
+
+	@Override
+	@Transactional
+	public void deleteGame(int id) {
+		gameDAO.deleteGame(id);
+		
+	}
+	
+	
+
 }

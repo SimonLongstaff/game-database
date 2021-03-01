@@ -11,4 +11,9 @@ public interface GameService {
 	
 	public List<Game> getGames();
 
+	public void saveGame(Game game);
+
+	public Game getGame(int id);
+
+	public void deleteGame(int id);
 }

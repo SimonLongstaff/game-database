@@ -26,7 +26,7 @@ public class GameDaoImp implements GameDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		//Query
-		Query<Game> query = currentSession.createQuery("from Game", Game.class);
+		Query<Game> query = currentSession.createQuery("from Game order by status", Game.class);
 		
 		
 		//Execute Query
@@ -35,6 +35,46 @@ public class GameDaoImp implements GameDAO {
 		
 		//return result
 		return games;
+		
+	}
+
+	@Override
+	public void saveGame(Game game) {
+		
+		//get hibernate sessions
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//save new entry
+	
+		currentSession.saveOrUpdate(game);
+		
+	}
+
+	@Override
+	public Game getGame(int id) {
+		
+		//get session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//read game from database
+		Game game = currentSession.get(Game.class, id);
+		
+		return game;
+		
+	}
+
+	@Override
+	public void deleteGame(int id) {
+		
+		//get session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		//delete game
+		Query query = currentSession.createQuery("delete from Game where id=:id ");
+		query.setParameter("id", id);
+		
+		query.executeUpdate();
+		
 		
 	}
 
